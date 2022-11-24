@@ -45,5 +45,5 @@ int main() {
         std::cin >> timeForCombination;
     }
 
-    std::cout << "Время необходимое для перебора всех комбинаций: " << std::pow(numberOfPositions, numberOfHandles) * timeForCombination << std::endl;
+    std::cout << "Время необходимое для перебора всех комбинаций: " << std::pow(numberOfPositions, numberOfHandles) * timeForCombination << " сек." << std::endl;
 }
