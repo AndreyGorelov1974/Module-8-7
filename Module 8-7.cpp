@@ -41,7 +41,7 @@ int main() {
 	float timeForCombination;
 	std::cin >> timeForCombination;
 	while (timeForCombination <= 0) {
-		std::cout << "Амплитуда должна быть больше 0. Введите снова: ";
+		std::cout << "Время должно быть больше 0. Введите снова: ";
 		std::cin >> timeForCombination;
 	}
 
