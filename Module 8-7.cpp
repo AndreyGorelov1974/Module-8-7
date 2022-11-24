@@ -21,32 +21,29 @@ int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    //затухание маятника
-    float attenuation = 0.084f;
+    std::cout << "Введите количество ручек сейфа: ";
+    int numberOfHandles;
+    std::cin >> numberOfHandles;
+    while (numberOfHandles <= 0) {
+        std::cout << "Kоличество ручек должнo быть больше 0. Введите снова: ";
+        std::cin >> numberOfHandles;
+    }
 
-    std::cout << "Введите начальную амплитуду маятника в сантиметрах: ";
-    float startAmplitude;
-    std::cin >> startAmplitude;
-    while (startAmplitude <= 0) {
+    std::cout << "Введите количество положений для каждой ручки сейфа: ";
+    int numberOfPositions;
+    std::cin >> numberOfPositions;
+    while (numberOfPositions <= 0) {
+        std::cout << "Kоличество положений должнo быть больше 0. Введите снова: ";
+        std::cin >> numberOfPositions;
+    }
+
+    std::cout << "Введите время в секундах для установки одной комбинации: ";
+    float timeForCombination;
+    std::cin >> timeForCombination;
+    while (timeForCombination <= 0) {
         std::cout << "Амплитуда должна быть больше 0. Введите снова: ";
-        std::cin >> startAmplitude;
+        std::cin >> timeForCombination;
     }
 
-    std::cout << "Введите конечную амплитуду маятника в сантиметрах: ";
-    float stopAmplitude;
-    std::cin >> stopAmplitude;
-    while (stopAmplitude <= 0) {
-        std::cout << "Амплитуда должна быть больше 0. Введите снова: ";
-        std::cin >> stopAmplitude;
-    }
-
-    float currentAmplitude = startAmplitude;
-    int numberSwings = 0;
-
-    while (currentAmplitude > stopAmplitude) {
-        currentAmplitude -= currentAmplitude * attenuation;
-        numberSwings++;
-    }
-
-    std::cout << "Количество качаний до остановки маятника: " << numberSwings;
+    std::cout << "Время необходимое для перебора всех комбинаций: " << std::pow(numberOfPositions, numberOfHandles) * timeForCombination << std::endl;
 }
